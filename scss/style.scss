@@ -1,0 +1,44 @@
+@import "../bootstrap-5.1.3/scss/bootstrap.scss";
+@import "colores.scss";
+@import "fuentes.scss";
+
+/* Home */
+
+/* Nav-bar */
+
+
+.navigator {
+    position: fixed;
+    width: 30%;
+    padding-top: 3%;
+    height: 100vh;
+    margin-left: 0%;
+    background-color: $bg-dark-primario;
+    color: $color-dark-primario;
+    transform: translateX(-80%);
+    list-style-type: none;
+    transition-duration: 1000ms;
+}
+
+.navigator-show {
+    position: fixed;
+    width: 20%;
+    height: 100vh;
+    padding-top: 3%;
+    padding-left: 2%;
+    margin-left: 0%;
+    list-style-type: none;
+    background-color: $bg-light-primario;
+    color: $color-light-primario;
+    transition-duration: 1000ms;
+    transform: translateX(0%);
+
+}
+
+.naveg-item {
+    font-size: 20px;
+    &:hover{
+        color: $blue;
+        cursor: pointer;
+    }
+}
