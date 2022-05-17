@@ -7823,7 +7823,7 @@ textarea.form-control-lg {
   color: white;
   transform: translateX(-80%);
   list-style-type: none;
-  transition-duration: 1000ms; }
+  transition-duration: 500ms; }
 
 .navigator-show {
   position: fixed;
@@ -7835,11 +7835,20 @@ textarea.form-control-lg {
   list-style-type: none;
   background-color: white;
   color: black;
-  transition-duration: 1000ms;
-  transform: translateX(0%); }
+  transition-duration: 500ms;
+  transform: translateX(0%);
+  font-family: arial; }
 
 .naveg-item {
   font-size: 20px; }
   .naveg-item:hover {
     color: #0d6efd;
     cursor: pointer; }
+
+.container-body {
+  padding-top: 20px; }
+
+.nav-cuentas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }

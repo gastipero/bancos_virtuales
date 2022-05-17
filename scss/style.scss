@@ -17,7 +17,7 @@
     color: $color-dark-primario;
     transform: translateX(-80%);
     list-style-type: none;
-    transition-duration: 1000ms;
+    transition-duration: 500ms;
 }
 
 .navigator-show {
@@ -30,9 +30,9 @@
     list-style-type: none;
     background-color: $bg-light-primario;
     color: $color-light-primario;
-    transition-duration: 1000ms;
+    transition-duration: 500ms;
     transform: translateX(0%);
-
+    font-family: $fuente-primaria;
 }
 
 .naveg-item {
@@ -41,4 +41,12 @@
         color: $blue;
         cursor: pointer;
     }
+}
+.container-body{
+    padding-top: 20px;
+}
+.nav-cuentas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
