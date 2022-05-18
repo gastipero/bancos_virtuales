@@ -6,6 +6,7 @@ let opModificar
 let ingresado
 let banco_filtrado
 let banco_filtro
+let cuentasLS
 const nav_bar = document.querySelector("#opciones")
 let nav_li = []
 for (let i = 0; i < nav_bar.firstElementChild.children.length; i+=1) {
@@ -77,6 +78,11 @@ function administrarCuentas(op2) {
     for (const item of ul_cuentas) {
         item.classList= "item-cuenta"
     }
+    ul_cuentas[0].addEventListener ('click', agregarCuenta)
+    ul_cuentas[1].addEventListener ('click', () => {
+        cuentasLS = JSON.parse(localStorage.getItem('cuentasLS'));
+        console.log(cuentasLS)
+    })
 } 
 function generarToken () {
     console.log("Generar Token")
@@ -147,8 +153,11 @@ let cuentas=[]
 
 let agregarCuenta = () => {
     let bancoNuevo = prompt("Ingrese banco nuevo");
+    localStorage.getItem('cuentasLS') && (cuentas = JSON.parse(localStorage.getItem('cuentasLS')))
     cuentas.push(new cuenta(bancoNuevo));
-    console.log(cuentas);
+    localStorage.setItem('cuentasLS',JSON.stringify(cuentas))
+    cuentasLS = JSON.parse(localStorage.getItem('cuentasLS'))
+    console.log(cuentasLS)
 };
 
 function modificar(opModificar) {
