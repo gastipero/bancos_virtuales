@@ -300,7 +300,6 @@ async function agregarCryptoBinance (simboloFiltrado) {
                     console.log(newSymbol)
                     localStorage.setItem ('Symbols',JSON.stringify(newSymbol)) 
                     SymbolsLS=  JSON.parse(localStorage.getItem ('Symbols'))
-                    escribirCrypto()
                 }
             });            
         })
@@ -314,15 +313,15 @@ function peticionBinance () {
     fetch(URL)
         .then ((res) => res.json())
         .then((result) => {
+            newCryptoLS= []
             SymbolsLS =  JSON.parse(localStorage.getItem ('Symbols'))
             result.forEach(crypto => {
                 SymbolsLS.forEach(cryptoLS => {
                     if (crypto.symbol == cryptoLS.symbol){
-                        newCryptoLS= []
                         newCryptoLS.push(crypto)
-                        console.log(newCryptoLS)
                     }})
             });
+            localStorage.setItem('Symbols',JSON.stringify(newCryptoLS))
         })
         .catch(err => console.log(err))
 }
@@ -336,8 +335,10 @@ function inversionCripto () {
     let formCrypto = document.querySelector("#formBuscaCrypto")
     formCrypto.addEventListener('submit',encontrarCrypto)
     setInterval(() => {
-        peticionBinance()
-    }, 10000);
+        peticionBinance(),
+        limpiarEscribirCrypto(),
+        escribirCrypto()
+    }, 2000);
     if (localStorage.getItem ('Symbols')){
         SymbolsLS= JSON.parse(localStorage.getItem ('Symbols'))
         newSymbol=SymbolsLS
@@ -349,22 +350,32 @@ function inversionCripto () {
         agregarCryptoBinance(cryptoBuscada)
         inputCrypto.value=""
     }
+    peticionBinance()
     escribirCrypto()
 }
 
 
 
 function escribirCrypto () {
+    /*     console.log(SymbolsLS) */
+    let titulosCrypto = document.createElement('li')
+    titulosCrypto.classList = 'titulos-crypto'
+    divInversiones.appendChild(titulosCrypto)
+    titulosCrypto.innerHTML = `<h2>Simbolo</h2><h2>Último Precio</h2><h2>Cambio de precio 24hr</h2><h2>Cambio de precio 24hr (%)</h2>`
     divCryptos = document.createElement ('div')
     divCryptos.classList = 'tabla-cryptos'
     divInversiones.appendChild(divCryptos)
-/*     console.log(SymbolsLS) */
     SymbolsLS.forEach(cryptomoneda => {
         let each_crypto = document.createElement ('li')
         each_crypto.classList = 'lista-cryptos'
         divCryptos.appendChild(each_crypto)
         each_crypto.innerHTML = `<ul>${cryptomoneda.symbol}</ul><ul>${cryptomoneda.lastPrice}</ul><ul>${cryptomoneda.priceChange}</ul><ul>${cryptomoneda.priceChangePercent}%</ul>` 
     });
+}
+
+function limpiarEscribirCrypto() {
+    document.querySelector(".tabla-cryptos") && document.querySelector(".tabla-cryptos").remove()
+    document.querySelector(".titulos-crypto") && document.querySelector(".titulos-crypto").remove()
 }
 
 

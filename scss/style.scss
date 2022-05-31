@@ -85,6 +85,10 @@
 .tabla-cryptos {
     display: block
 }
+
+.titulos-crypto {
+    @extend .nav-cuentas;
+}
 .lista-cryptos {
     @extend .nav-cuentas; 
 }

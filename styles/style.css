@@ -7848,7 +7848,7 @@ textarea.form-control-lg {
 .container-body {
   padding-top: 20px; }
 
-.nav-cuentas, .resumenBanco, .nav-inversiones, .div-inversiones, .lista-cryptos {
+.nav-cuentas, .resumenBanco, .nav-inversiones, .div-inversiones, .titulos-crypto, .lista-cryptos {
   display: flex;
   flex-direction: row;
   justify-content: center; }
