@@ -7848,7 +7848,22 @@ textarea.form-control-lg {
 .container-body {
   padding-top: 20px; }
 
-.nav-cuentas {
+.nav-cuentas, .resumenBanco, .nav-inversiones, .div-inversiones, .lista-cryptos {
   display: flex;
   flex-direction: row;
   justify-content: center; }
+
+.Token, .Num-token {
+  display: flex;
+  margin: 10px auto;
+  justify-content: center; }
+
+.progress {
+  width: 25%;
+  margin: auto; }
+
+.progress-bar {
+  transition: 0ms; }
+
+.tabla-cryptos {
+  display: block; }

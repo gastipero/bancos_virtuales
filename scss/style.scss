@@ -50,3 +50,41 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.Token {
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+}
+
+.Num-token {
+    @extend .Token
+}
+
+.progress {
+    width: 25%;
+    margin:auto
+}
+
+.progress-bar {
+    transition: 0ms;
+}
+
+.resumenBanco {
+    @extend .nav-cuentas;
+}
+
+.nav-inversiones {
+    @extend .nav-cuentas;
+}
+
+.div-inversiones {
+    @extend .nav-cuentas;
+}
+
+.tabla-cryptos {
+    display: block
+}
+.lista-cryptos {
+    @extend .nav-cuentas; 
+}
