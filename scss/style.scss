@@ -92,3 +92,11 @@
 .lista-cryptos {
     @extend .nav-cuentas; 
 }
+
+.nav-modcuentas {
+    @extend .nav-cuentas;
+}
+
+.administrar-cuenta {
+    @extend .nav-cuentas;
+}
